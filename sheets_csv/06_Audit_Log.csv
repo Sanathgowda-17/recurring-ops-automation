@@ -1,0 +1,2 @@
+Log_ID,Timestamp,Event_Type,Instance_ID,Task_ID,Actor,Details,Status_Before,Status_After
+LOG-001,2026-10-25 09:00:00,SYSTEM_INIT,ALL,ALL,System Admin,Initial system setup and demo tasks initialized,-,Pending

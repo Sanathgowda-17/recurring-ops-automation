@@ -1,0 +1,5 @@
+Instance_ID,Task_ID,Task_Name,Assigned_To,Employee_Email,Frequency,Cycle_Number,Cycle_Start_Date,Due_Date,Due_Time,Proof_Type,Status,Proof_Submitted,Completion_Notes,Completed_By,Completed_At,Manager_Alert_Sent_At,Manager_Acknowledged_At,Manager_Notes,Leadership_Escalation_Sent_At,Next_Cycle_Generated
+TSK-001-C01,TSK-001,Daily Operations Update,Employee A,employee.a@innoware.com,Daily,1,2026-10-25,2026-10-25,11:00:00,WhatsApp Timestamp & Summary,Pending,,,,,,,NO
+TSK-002-C01,TSK-002,Portal Task A,Employee B,employee.b@innoware.com,7 Days,1,2026-10-25,2026-11-01,17:00:00,Ticket ID,Pending,,,,,,,NO
+TSK-003-C01,TSK-003,Portal Task B,Employee C,employee.c@innoware.com,15 Days,1,2026-10-25,2026-11-09,17:00:00,Ticket ID,Pending,,,,,,,NO
+TSK-004-C01,TSK-004,Portal Task C,Employee D,employee.d@innoware.com,30 Days,1,2026-10-25,2026-11-24,17:00:00,Ticket ID,Pending,,,,,,,NO

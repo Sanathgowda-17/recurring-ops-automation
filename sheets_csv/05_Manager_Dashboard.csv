@@ -1,0 +1,13 @@
+Metric,Value,Formula_Or_Source,Status
+Total Active Cycles,"=COUNTA(Active_Tasks!A2:A)",Count of all active instances,INFO
+Pending Tasks,"=COUNTIF(Active_Tasks!L2:L, ""Pending"")",Tasks on track or awaiting action,PENDING
+Manager Alerted,"=COUNTIF(Active_Tasks!L2:L, ""Manager Alerted"")",Past due - alerted to manager,ALERTED
+Manager Acknowledged,"=COUNTIF(Active_Tasks!L2:L, ""Manager Acknowledged"")",Manager reviewed and engaged,IN_PROGRESS
+Escalated to Leadership,"=COUNTIF(Active_Tasks!L2:L, ""Escalated"")",Breached manager SLA,CRITICAL
+Completed Cycles,"=COUNTIF(Active_Tasks!L2:L, ""Completed"")",Successfully closed cycles,COMPLETED
+
+Employee_Name,Total_Assigned,Pending_Count,Alerted_Count,Escalated_Count,Completed_Count,Compliance_Rate
+Employee A,"=COUNTIF(Active_Tasks!D:D, ""Employee A"")","=COUNTIFS(Active_Tasks!D:D, ""Employee A"", Active_Tasks!L:L, ""Pending"")","=COUNTIFS(Active_Tasks!D:D, ""Employee A"", Active_Tasks!L:L, ""Manager Alerted"")","=COUNTIFS(Active_Tasks!D:D, ""Employee A"", Active_Tasks!L:L, ""Escalated"")","=COUNTIFS(Active_Tasks!D:D, ""Employee A"", Active_Tasks!L:L, ""Completed"")","=IF(B10>0, TEXT(F10/B10, ""0.0%""), ""100%"")"
+Employee B,"=COUNTIF(Active_Tasks!D:D, ""Employee B"")","=COUNTIFS(Active_Tasks!D:D, ""Employee B"", Active_Tasks!L:L, ""Pending"")","=COUNTIFS(Active_Tasks!D:D, ""Employee B"", Active_Tasks!L:L, ""Manager Alerted"")","=COUNTIFS(Active_Tasks!D:D, ""Employee B"", Active_Tasks!L:L, ""Escalated"")","=COUNTIFS(Active_Tasks!D:D, ""Employee B"", Active_Tasks!L:L, ""Completed"")","=IF(B11>0, TEXT(F11/B11, ""0.0%""), ""100%"")"
+Employee C,"=COUNTIF(Active_Tasks!D:D, ""Employee C"")","=COUNTIFS(Active_Tasks!D:D, ""Employee C"", Active_Tasks!L:L, ""Pending"")","=COUNTIFS(Active_Tasks!D:D, ""Employee C"", Active_Tasks!L:L, ""Manager Alerted"")","=COUNTIFS(Active_Tasks!D:D, ""Employee C"", Active_Tasks!L:L, ""Escalated"")","=COUNTIFS(Active_Tasks!D:D, ""Employee C"", Active_Tasks!L:L, ""Completed"")","=IF(B12>0, TEXT(F12/B12, ""0.0%""), ""100%"")"
+Employee D,"=COUNTIF(Active_Tasks!D:D, ""Employee D"")","=COUNTIFS(Active_Tasks!D:D, ""Employee D"", Active_Tasks!L:L, ""Pending"")","=COUNTIFS(Active_Tasks!D:D, ""Employee D"", Active_Tasks!L:L, ""Manager Alerted"")","=COUNTIFS(Active_Tasks!D:D, ""Employee D"", Active_Tasks!L:L, ""Escalated"")","=COUNTIFS(Active_Tasks!D:D, ""Employee D"", Active_Tasks!L:L, ""Completed"")","=IF(B13>0, TEXT(F13/B13, ""0.0%""), ""100%"")"

@@ -1,0 +1,9 @@
+Section,Field,Value,Notes
+Header,OPERATIONS SYSTEM,EMPLOYEE WORKBENCH,Single-point task tracking & completion
+Control,Select Employee,Employee A,Select your name from dropdown to filter your pending tasks
+Summary,Pending Tasks Count,"=COUNTIF(F9:F, ""<>Completed"") - COUNTBLANK(F9:F)",Real-time pending count
+Instruction,Instructions,"Enter your Ticket ID or WhatsApp update proof in column G, optional notes in column H, then click 'Allo Innoware Ops > Submit Selected Completion' on the top menu.",No duplicate updates needed
+
+Row_Header,Instance_ID,Task_Name,Frequency,Due_Date,Due_Time,Status,Proof_Type_Required,Enter_Proof_Or_Ticket_ID,Completion_Notes
+Sample_Row_1,TSK-001-C01,Daily Operations Update,Daily,2026-10-25,11:00:00,Pending,WhatsApp Timestamp & Summary,,
+Sample_Row_2,TSK-002-C01,Portal Task A,7 Days,2026-11-01,17:00:00,Pending,Ticket ID,,

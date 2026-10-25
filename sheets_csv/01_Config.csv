@@ -1,0 +1,13 @@
+Key,Value,Description
+MANAGER_EMAIL,manager@innoware.com,Email address for operational manager alerts
+LEADERSHIP_EMAIL,leadership@innoware.com,Email address for executive escalation
+ENABLE_EMAIL_ALERTS,TRUE,Set to TRUE to send actual emails; FALSE to log in Audit Log only
+DAILY_TASK_CUTOFF_TIME,11:00,Cutoff time for daily operational tasks (24-hour format)
+DAILY_TASK_MANAGER_ALERT_DELAY_MINS,30,Minutes after cutoff before manager is alerted (e.g. 11:30 AM)
+DAILY_TASK_LEADERSHIP_ESCALATION_HOURS,4,Hours after manager alert before escalating to leadership
+PERIODIC_TASK_DUE_TIME,17:00,Cutoff time for periodic tasks (7/15/30 days)
+PERIODIC_MANAGER_ALERT_DELAY_HOURS,16,Hours after periodic due time before manager alert (09:00 next day)
+PERIODIC_LEADERSHIP_ESCALATION_HOURS,24,Hours after manager alert before escalating to leadership
+RECURRENCE_CALCULATION_MODE,SCHEDULE_BASED,SCHEDULE_BASED (Due = Prev Due + Freq) or COMPLETION_BASED (Due = Completed Date + Freq)
+WEB_APP_URL,https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec,Apps Script Web App URL for 1-click manager acknowledgement
+TIMEZONE,Asia/Kolkata,Default timezone for Allo Innoware operations

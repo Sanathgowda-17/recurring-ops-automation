@@ -1,0 +1,5 @@
+Task_ID,Task_Name,Assigned_To,Employee_Email,Frequency,Frequency_Days,Expected_Cutoff_Time,Proof_Type,Target_Portal_Channel,Active,Description
+TSK-001,Daily Operations Update,Employee A,employee.a@innoware.com,Daily,1,11:00:00,WhatsApp Timestamp & Summary,Ops WhatsApp Group,TRUE,Post daily operations summary in the WhatsApp Ops group before 11:00 AM.
+TSK-002,Portal Task A,Employee B,employee.b@innoware.com,7 Days,7,17:00:00,Ticket ID,Jira / Internal Portal,TRUE,Review weekly inventory counts and log ticket on Jira.
+TSK-003,Portal Task B,Employee C,employee.c@innoware.com,15 Days,15,17:00:00,Ticket ID,Vendor Settlement Portal,TRUE,Bi-weekly reconciliation of vendor payments and raise portal ticket.
+TSK-004,Portal Task C,Employee D,employee.d@innoware.com,30 Days,30,17:00:00,Ticket ID,ERP Core System,TRUE,Monthly closing audits and post-closing journal ticket.
