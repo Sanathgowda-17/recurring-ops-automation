@@ -270,7 +270,7 @@ def build_pdf(filename="Sanath_S_Gowda_Resume.pdf"):
     elements.append(Spacer(1, 2.2))
 
     # Project 2: AutoRepo
-    p2_links = '<font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17/autorepo-agent"><u>GitHub</u></a></font>'
+    p2_links = '<font color="#1D4ED8"><a href="https://autorepo-agent.onrender.com"><u>Live App</u></a></font> &bull; <font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17/autorepo-agent"><u>GitHub</u></a></font>'
     elements.append(make_project_header("AutoRepo — Autonomous 4-Agent PR Reviewer &amp; AST Security Linter", "Python, Compiler AST (ast.NodeVisitor), FastAPI, Multi-Agent DAG, Pytest Synthesis, HMAC-SHA256", p2_links, "2026"))
     elements.append(Spacer(1, 1.0))
     elements.append(Paragraph("&bull;&nbsp;&nbsp;Architected a 4-Agent Directed Acyclic Graph (SecOps SAST, Arch/AST Complexity, UnitTest Synthesizer, Lead Patch Critic) that parses Python Abstract Syntax Trees to compute McCabe Cyclomatic Complexity, loop Big-O depth, and N+1 queries.", bullet_style))
@@ -278,7 +278,7 @@ def build_pdf(filename="Sanath_S_Gowda_Resume.pdf"):
     elements.append(Spacer(1, 2.2))
 
     # Project 3: FinSight Hybrid RAG
-    p3_links = '<font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17/finsight-rag"><u>GitHub</u></a></font>'
+    p3_links = '<font color="#1D4ED8"><a href="https://finsight-rag-p87r.onrender.com"><u>Live App</u></a></font> &bull; <font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17/finsight-rag"><u>GitHub</u></a></font>'
     elements.append(make_project_header("FinSight — Multimodal Financial (SEC 10-K / Basel III) &amp; Legal Hybrid RAG", "Python, Sparse BM25Okapi, Dense Vector Search, Reciprocal Rank Fusion (RRF), Cross-Encoder, RAGAS", p3_links, "2026"))
     elements.append(Spacer(1, 1.0))
     elements.append(Paragraph("&bull;&nbsp;&nbsp;Built an institutional Hybrid RAG engine combining Sparse Lexical BM25Okapi and Dense Vector Embeddings via Reciprocal Rank Fusion (RRF) and Cross-Encoder Reranking, achieving 97.8% Recall@3 on SEC 10-K and RBI regulatory filings.", bullet_style))

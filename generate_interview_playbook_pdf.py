@@ -130,6 +130,7 @@ def build_playbook(filename="Flagship_AI_Systems_Interview_Playbook.pdf"):
     # =========================================================================
     elements.append(Paragraph("2. AUTOREPO — Autonomous 4-Agent PR Reviewer, Compiler AST &amp; OWASP Security Linter", h1_style))
     elements.append(Paragraph(
+        "<b>Live App:</b> https://autorepo-agent.onrender.com &nbsp;|&nbsp; "
         "<b>GitHub:</b> https://github.com/Sanathgowda-17/autorepo-agent &nbsp;|&nbsp; "
         "<b>Local Port:</b> http://localhost:8001",
         body_style
@@ -162,6 +163,7 @@ def build_playbook(filename="Flagship_AI_Systems_Interview_Playbook.pdf"):
     # =========================================================================
     elements.append(Paragraph("3. FINSIGHT — Multimodal Financial (SEC 10-K / Basel III / RBI) &amp; Legal Hybrid RAG", h1_style))
     elements.append(Paragraph(
+        "<b>Live App:</b> https://finsight-rag-p87r.onrender.com &nbsp;|&nbsp; "
         "<b>GitHub:</b> https://github.com/Sanathgowda-17/finsight-rag &nbsp;|&nbsp; "
         "<b>Local Port:</b> http://localhost:8002",
         body_style
