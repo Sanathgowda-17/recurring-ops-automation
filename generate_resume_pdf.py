@@ -261,36 +261,42 @@ def build_pdf(filename="Sanath_S_Gowda_Resume.pdf"):
         ]))
         return t
 
-    # Project 1: Upadha AI
-    p1_links = '<font color="#1D4ED8"><a href="https://upadha-ai.onrender.com"><u>Live App</u></a></font> &bull; <font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17/upadha-ai"><u>GitHub</u></a></font>'
-    elements.append(make_project_header("Upadha AI — Kautilya's Test of Statecraft", "Node.js, Gemini Vision OCR, Turso Cloud (libSQL), Capacitor SDK, SSE, PWA", p1_links, "2026"))
-    elements.append(Spacer(1, 1.5))
-    elements.append(Paragraph("&bull;&nbsp;&nbsp;Architected a production full-stack edtech platform evaluating UPSC CSE mains answers with real-time SSE streaming, multi-page handwriting OCR, Topper visual diff, and Dholpur House DAF interview simulation (275-mark rubric).", bullet_style))
-    elements.append(Paragraph("&bull;&nbsp;&nbsp;Engineered a resilient dual-mode database pairing Turso Cloud SQLite (libSQL) in AWS Mumbai with local SQLite fallback for 100% uptime; packaged standalone Android APK with Capacitor and deployed live on Render.", bullet_style))
-    elements.append(Spacer(1, 3.5))
+    # Project 1: OmniCache & Guard
+    p1_links = '<font color="#1D4ED8"><a href="https://omnicache-gateway.onrender.com"><u>Live App</u></a></font> &bull; <font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17/omnicache-gateway"><u>GitHub</u></a></font>'
+    elements.append(make_project_header("OmniCache &amp; Guard — Distributed Semantic AI Gateway &amp; WAF", "Python, FastAPI, Hybrid Vector Embeddings, Cosine Similarity, Token-Bucket Rate Limiter, SQLite", p1_links, "2026"))
+    elements.append(Spacer(1, 1.0))
+    elements.append(Paragraph("&bull;&nbsp;&nbsp;Engineered an OpenAI-compatible AI Gateway (/v1/chat/completions) featuring a Hybrid Semantic Vector Cache (word + subword n-grams) that cuts repeated inference latency from ~850 ms to ~2.4 ms (345x speedup) and reduces token costs by up to 65%.", bullet_style))
+    elements.append(Paragraph("&bull;&nbsp;&nbsp;Built a Zero-Trust Security Firewall with 6 runtime-toggleable DLP PII scrubbers, Prompt-Injection/SQLi WAF rules (HTTP 403), O(1) Token-Bucket rate limiting, and a 3-state Circuit Breaker across multi-LLM fallback providers.", bullet_style))
+    elements.append(Spacer(1, 2.2))
 
-    # Project 2: Fitness Assistant
-    p2_links = '<font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17"><u>GitHub</u></a></font>'
-    elements.append(make_project_header("Intelligent Fitness Assistant", "Python, FastAPI, WebSockets, MediaPipe, OpenCV, React Native, Cloud Firestore", p2_links, "2025–2026"))
-    elements.append(Paragraph("<i>Recipient – KSCST State Engineering Research Grant, 49th Series Student Project Programme</i>", item_left_sub))
-    elements.append(Spacer(1, 1.5))
-    elements.append(Paragraph("&bull;&nbsp;&nbsp;Built an end-to-end computer vision and pose tracking system using MediaPipe Pose to evaluate 33 skeletal landmarks with 94%+ accuracy.", bullet_style))
-    elements.append(Paragraph("&bull;&nbsp;&nbsp;Developed full-stack mobile client and FastAPI backend enabling sub-100ms bi-directional WebSocket telemetry with asynchronous LLM form correction.", bullet_style))
-    elements.append(Spacer(1, 3.5))
+    # Project 2: AutoRepo
+    p2_links = '<font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17/autorepo-agent"><u>GitHub</u></a></font>'
+    elements.append(make_project_header("AutoRepo — Autonomous 4-Agent PR Reviewer &amp; AST Security Linter", "Python, Compiler AST (ast.NodeVisitor), FastAPI, Multi-Agent DAG, Pytest Synthesis, HMAC-SHA256", p2_links, "2026"))
+    elements.append(Spacer(1, 1.0))
+    elements.append(Paragraph("&bull;&nbsp;&nbsp;Architected a 4-Agent Directed Acyclic Graph (SecOps SAST, Arch/AST Complexity, UnitTest Synthesizer, Lead Patch Critic) that parses Python Abstract Syntax Trees to compute McCabe Cyclomatic Complexity, loop Big-O depth, and N+1 queries.", bullet_style))
+    elements.append(Paragraph("&bull;&nbsp;&nbsp;Automated OWASP Top-10 / CWE vulnerability detection (CWE-89 SQLi, CWE-798 Secrets, CWE-95 RCE), side-by-side security patch refactoring, and deterministic pytest unit test generation with signed GitHub Webhook verification.", bullet_style))
+    elements.append(Spacer(1, 2.2))
 
-    # Project 3: Operations Automation Engine
-    p3_links = '<font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17"><u>GitHub</u></a></font>'
-    elements.append(make_project_header("Automated Recurring Operations &amp; Escalation Engine", "Google Apps Script, Webhooks, HTML/CSS, REST APIs, LockService Concurrency", p3_links, "2026"))
-    elements.append(Spacer(1, 1.5))
-    elements.append(Paragraph("&bull;&nbsp;&nbsp;Engineered an enterprise scheduling engine managing recurring task lifecycles (Daily, 7d, 15d, 30d) with business-day calculation algorithms and automated rollover.", bullet_style))
-    elements.append(Paragraph("&bull;&nbsp;&nbsp;Built centralized Employee Workbench interface and multi-tiered SLA escalation engine with LockService concurrency, eliminating 100% of reporting redundancy.", bullet_style))
-    elements.append(Spacer(1, 4.5))
+    # Project 3: FinSight Hybrid RAG
+    p3_links = '<font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17/finsight-rag"><u>GitHub</u></a></font>'
+    elements.append(make_project_header("FinSight — Multimodal Financial (SEC 10-K / Basel III) &amp; Legal Hybrid RAG", "Python, Sparse BM25Okapi, Dense Vector Search, Reciprocal Rank Fusion (RRF), Cross-Encoder, RAGAS", p3_links, "2026"))
+    elements.append(Spacer(1, 1.0))
+    elements.append(Paragraph("&bull;&nbsp;&nbsp;Built an institutional Hybrid RAG engine combining Sparse Lexical BM25Okapi and Dense Vector Embeddings via Reciprocal Rank Fusion (RRF) and Cross-Encoder Reranking, achieving 97.8% Recall@3 on SEC 10-K and RBI regulatory filings.", bullet_style))
+    elements.append(Paragraph("&bull;&nbsp;&nbsp;Implemented automated Markdown GAAP financial table extraction and a real-time RAGAS evaluation triad (Faithfulness, Context Precision, Answer Relevance) with verbatim [Doc-ID] citation grounding to eliminate hallucinations.", bullet_style))
+    elements.append(Spacer(1, 2.2))
+
+    # Project 4: Upadha AI
+    p4_links = '<font color="#1D4ED8"><a href="https://upadha-ai.onrender.com"><u>Live App</u></a></font> &bull; <font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17/upadha-ai"><u>GitHub</u></a></font>'
+    elements.append(make_project_header("Upadha AI — Civil Services Mains OCR Evaluator &amp; Interview Platform", "Node.js, Gemini Vision OCR, Turso Cloud (libSQL), Capacitor Android SDK, SSE Streaming, PWA", p4_links, "2026"))
+    elements.append(Spacer(1, 1.0))
+    elements.append(Paragraph("&bull;&nbsp;&nbsp;Architected a full-stack evaluation platform with real-time SSE streaming, multi-page handwriting OCR, and dual-mode Turso Cloud SQLite (libSQL) + local SQLite failover for 100% uptime; packaged for Android via Capacitor and deployed on Render.", bullet_style))
+    elements.append(Spacer(1, 3.0))
 
     # =========================================================================
     # 5. Technical Skills
     # =========================================================================
     elements.append(SectionBanner("TECHNICAL SKILLS", width=content_width))
-    elements.append(Spacer(1, 3))
+    elements.append(Spacer(1, 2.5))
 
     skills_data = [
         [
@@ -298,12 +304,12 @@ def build_pdf(filename="Sanath_S_Gowda_Resume.pdf"):
             Paragraph("Python, Java, JavaScript (ES6+), C, C++, SQL, HTML5/CSS3", skill_val_style)
         ],
         [
-            Paragraph("<b>Libraries &amp; Frameworks:</b>", skill_label_style),
-            Paragraph("Node.js, FastAPI, React Native, Expo, Jetpack Compose, MediaPipe, OpenCV, Pydantic, Capacitor, AsyncIO", skill_val_style)
+            Paragraph("<b>AI &amp; Backend Frameworks:</b>", skill_label_style),
+            Paragraph("FastAPI, Node.js, Hybrid RAG (BM25 + RRF), Semantic Vector Caching, Multi-Agent DAGs, AST Static Analysis, React Native, Jetpack Compose", skill_val_style)
         ],
         [
-            Paragraph("<b>Tools &amp; Platforms:</b>", skill_label_style),
-            Paragraph("Turso Cloud (libSQL), MySQL, PostgreSQL, Cloud Firestore, Firebase, Android Studio, Git, Postman, Linux, Render", skill_val_style)
+            Paragraph("<b>Databases &amp; Cloud Tools:</b>", skill_label_style),
+            Paragraph("SQLite, Turso Cloud (libSQL), PostgreSQL, MySQL, Cloud Firestore, Scikit-Learn, NumPy, Git, Linux, Render, Capacitor", skill_val_style)
         ]
     ]
     t_skills = Table(skills_data, colWidths=[125, content_width - 125])
