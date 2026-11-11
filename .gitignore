@@ -1,0 +1,5 @@
+upadha-ai/
+ai-content-studio/
+__pycache__/
+*.pyc
+.DS_Store

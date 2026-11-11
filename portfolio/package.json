@@ -1,0 +1,12 @@
+{
+  "name": "sanath-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio of Sanath S Gowda - Software Developer & Full-Stack Systems Engineer",
+  "scripts": {
+    "start": "npx serve -l 3000 .",
+    "dev": "npx serve -l 3000 ."
+  },
+  "keywords": ["portfolio", "software-developer", "fastapi", "react-native", "sanath-gowda"],
+  "author": "Sanath S Gowda <1mp22cs046@gmail.com>",
+  "license": "MIT"
+}
