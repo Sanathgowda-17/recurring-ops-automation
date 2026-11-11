@@ -200,38 +200,39 @@ def build_pdf(filename="Sanath_S_Gowda_Resume.pdf"):
     elements.append(SectionBanner("PROJECTS", width=content_width))
     elements.append(Spacer(1, 4))
 
-    # Project 1: Fitness Assistant
+    # Project 1: Upadha AI
     p1_title = (
+        "<b>Upadha AI — Kautilya's Test of Statecraft</b> | Node.js, Gemini Vision OCR, Turso Cloud, Capacitor, SSE, PWA | "
+        '<font color="#1D4ED8"><a href="https://upadha-ai.onrender.com"><u>Live App</u></a></font> &bull; '
+        '<font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17/upadha-ai"><u>Github</u></a></font>'
+    )
+    elements.append(Paragraph(p1_title, item_title_style))
+    elements.append(Spacer(1, 1))
+    elements.append(Paragraph("• Architected a production full-stack edtech platform evaluating UPSC CSE mains answers with real-time SSE streaming, multi-page handwriting OCR, Topper visual diff, and Dholpur House DAF interview simulation (275-mark rubric).", bullet_style))
+    elements.append(Paragraph("• Engineered a resilient dual-mode database pairing Turso Cloud SQLite (libSQL) in AWS Mumbai with local SQLite fallback for 100% uptime; packaged standalone Android APK with Capacitor and deployed live on Render.", bullet_style))
+    elements.append(Spacer(1, 4))
+
+    # Project 2: Fitness Assistant
+    p2_title = (
         "<b>Intelligent Fitness Assistant</b> | Python, FastAPI, WebSockets, MediaPipe, OpenCV, React Native | "
         '<font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17"><u>Github Link</u></a></font>'
     )
-    elements.append(Paragraph(p1_title, item_title_style))
+    elements.append(Paragraph(p2_title, item_title_style))
     elements.append(Paragraph("<i>Recipient – KSCST State Engineering Research Grant, 49th Series Student Project Programme</i>", item_sub_style))
     elements.append(Spacer(1, 1))
     elements.append(Paragraph("• Built an end-to-end computer vision and pose tracking system using MediaPipe Pose to evaluate 33 skeletal landmarks with 94%+ accuracy.", bullet_style))
     elements.append(Paragraph("• Developed full-stack mobile client and FastAPI backend enabling sub-100ms bi-directional WebSocket telemetry with asynchronous LLM form correction.", bullet_style))
     elements.append(Spacer(1, 4))
 
-    # Project 2: Operations Automation Engine
-    p2_title = (
-        "<b>Automated Recurring Operations &amp; Escalation Engine</b> | Google Apps Script, Webhooks, HTML/CSS, REST | "
-        '<font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17"><u>Github Link</u></a></font>'
-    )
-    elements.append(Paragraph(p2_title, item_title_style))
-    elements.append(Spacer(1, 1))
-    elements.append(Paragraph("• Engineered an enterprise scheduling engine managing recurring task lifecycles (Daily, 7d, 15d, 30d) with business-day calculation algorithms and automated rollover.", bullet_style))
-    elements.append(Paragraph("• Built centralized Employee Workbench interface and multi-tiered SLA escalation engine with LockService concurrency, eliminating 100% of reporting redundancy.", bullet_style))
-    elements.append(Spacer(1, 4))
-
-    # Project 3: Conversational Customer Service AI Agent
+    # Project 3: Operations Automation Engine
     p3_title = (
-        "<b>Conversational Customer Service AI Agent</b> | Python, FastAPI, NLP, Vector Embeddings, Pydantic | "
+        "<b>Automated Recurring Operations &amp; Escalation Engine</b> | Google Apps Script, Webhooks, HTML/CSS, REST | "
         '<font color="#1D4ED8"><a href="https://github.com/Sanathgowda-17"><u>Github Link</u></a></font>'
     )
     elements.append(Paragraph(p3_title, item_title_style))
     elements.append(Spacer(1, 1))
-    elements.append(Paragraph("• Developed high-throughput RESTful backend services using FastAPI and Python to process multi-intent customer queries with sub-second response latency.", bullet_style))
-    elements.append(Paragraph("• Implemented semantic search and vector retrieval pipelines with schema validation and in-memory caching, accelerating resolution speed by 60%.", bullet_style))
+    elements.append(Paragraph("• Engineered an enterprise scheduling engine managing recurring task lifecycles (Daily, 7d, 15d, 30d) with business-day calculation algorithms and automated rollover.", bullet_style))
+    elements.append(Paragraph("• Built centralized Employee Workbench interface and multi-tiered SLA escalation engine with LockService concurrency, eliminating 100% of reporting redundancy.", bullet_style))
     elements.append(Spacer(1, 6))
 
     # 5. TECHNICAL SKILLS
@@ -239,9 +240,9 @@ def build_pdf(filename="Sanath_S_Gowda_Resume.pdf"):
     elements.append(Spacer(1, 4))
     elements.append(Paragraph("<b>Languages:</b> Python, Java, JavaScript (ES6+), C, C++, SQL, HTML5/CSS3", body_style))
     elements.append(Spacer(1, 1.5))
-    elements.append(Paragraph("<b>Libraries &amp; Frameworks:</b> FastAPI, React Native, Expo, Jetpack Compose, MediaPipe, OpenCV, Pydantic, Scikit-learn, AsyncIO", body_style))
+    elements.append(Paragraph("<b>Libraries &amp; Frameworks:</b> Node.js, FastAPI, React Native, Expo, Jetpack Compose, MediaPipe, OpenCV, Pydantic, Capacitor, AsyncIO", body_style))
     elements.append(Spacer(1, 1.5))
-    elements.append(Paragraph("<b>Tools &amp; Platforms:</b> MySQL, PostgreSQL, Cloud Firestore, Firebase, Microsoft Azure, Google Apps Script, Git, Postman, Linux", body_style))
+    elements.append(Paragraph("<b>Tools &amp; Platforms:</b> Turso Cloud (libSQL), MySQL, PostgreSQL, Cloud Firestore, Firebase, Android Studio, Git, Postman, Linux, Render", body_style))
     elements.append(Spacer(1, 6))
 
     # 6. ACHIEVEMENTS & CERTIFICATIONS
