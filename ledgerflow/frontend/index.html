@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LedgerFlow Treasury — Institutional Payment Gateway, Double-Entry ACID Ledger & GST Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- Ambient Atmospheric Lighting -->
+  <div class="ambient-orb orb-indigo"></div>
+  <div class="ambient-orb orb-emerald"></div>
+  <div class="ambient-grid-mesh"></div>
+
+  <div class="app-shell">
+    <!-- =================================================================== -->
+    <!-- LEFT INSTITUTIONAL SIDEBAR                                          -->
+    <!-- =================================================================== -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-emblem">
+          <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+            <path d="M16 2L29 9.5V22.5L16 30L3 22.5V9.5L16 2Z" stroke="url(#gradPrism)" stroke-width="2.2" fill="rgba(99, 91, 255, 0.14)"/>
+            <path d="M16 9L23 13V19L16 23L9 19V13L16 9Z" fill="url(#gradPrism)"/>
+            <defs>
+              <linearGradient id="gradPrism" x1="3" y1="2" x2="29" y2="30" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#818CF8"/>
+                <stop offset="0.5" stop-color="#635BFF"/>
+                <stop offset="1" stop-color="#10B981"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-meta">
+          <div class="brand-name-row">
+            <span class="brand-name">LedgerFlow</span>
+            <span class="brand-tag">ACID</span>
+          </div>
+          <span class="brand-domain">RBI PA/PG Nodal Treasury</span>
+        </div>
+      </div>
+
+      <div class="sidebar-scroll">
+        <div class="nav-group">
+          <div class="nav-group-label">Core Treasury</div>
+          <button class="nav-item active" data-view="view-overview">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
+            <span>Treasury Command</span>
+          </button>
+          <button class="nav-item" data-view="view-checkout">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            <span>Checkout Studio</span>
+            <span class="nav-pill-live">LIVE</span>
+          </button>
+          <button class="nav-item" data-view="view-payments">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span>Escrow &amp; Settlements</span>
+            <span class="nav-counter" id="navPaymentsCount">0</span>
+          </button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-label">Accounting &amp; Tax</div>
+          <button class="nav-item" data-view="view-accounts">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M3 10h18"/><path d="M5 6l7-3 7 3"/><path d="M4 10v11"/><path d="M20 10v11"/><path d="M8 14v3"/><path d="M12 14v3"/><path d="M16 14v3"/></svg>
+            <span>Chart of Accounts</span>
+          </button>
+          <button class="nav-item" data-view="view-invoices">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>GST Tax Invoices</span>
+            <span class="nav-counter" id="navInvoicesCount">0</span>
+          </button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-label">Verification &amp; Chaos Lab</div>
+          <button class="nav-item" data-view="view-lab">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Concurrency Race Lab</span>
+          </button>
+          <button class="nav-item" data-view="view-audit">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>SHA-256 Audit Chain</span>
+          </button>
+          <button class="nav-item" data-view="view-webhooks">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            <span>Webhooks &amp; DLQ</span>
+            <span class="nav-counter warn hidden" id="navDlqCount">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sidebar Custody Proof Footer -->
+      <div class="sidebar-footer">
+        <div class="custody-seal-card" id="sidebarIntegrityCard">
+          <div class="custody-seal-header">
+            <span class="pulse-dot" id="sidebarPulseDot"></span>
+            <span class="custody-seal-title" id="sidebarSealStatus">SHA-256 IMMUTABLE</span>
+          </div>
+          <div class="custody-seal-row">
+            <span>Trial Balance &Delta;</span>
+            <strong id="sidebarTrialDelta">₹0.00</strong>
+          </div>
+          <div class="custody-seal-hash" id="sidebarMerkleHash">Root: 000000000000...</div>
+        </div>
+
+        <div class="sidebar-bottom-actions">
+          <button class="btn-theme-toggle" id="btnThemeToggle" title="Switch Dark / Light Theme">
+            <span id="themeIcon">&#9728;&#65039;</span>
+            <span id="themeLabel">Light Mode</span>
+          </button>
+          <button class="btn-reset-seed" id="btnResetDemo" title="Reset database to clean seed state">
+            &#8635; Reset DB
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- =================================================================== -->
+    <!-- MAIN WORKSPACE AREA                                                 -->
+    <!-- =================================================================== -->
+    <div class="main-wrapper">
+      <!-- Top Command Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <h1 id="activeViewTitle">Treasury Command Center</h1>
+          <p id="activeViewSubtitle">Real-time RBI Nodal Escrow custody, T+0 split settlements &amp; double-entry accounting</p>
+        </div>
+        <div class="header-right">
+          <button class="btn btn-secondary btn-sm" id="btnQuickTopupHeader">
+            <span>+ ₹1,00,000 RTGS Top-Up</span>
+          </button>
+          <button class="btn btn-primary btn-sm" id="btnNewPaymentQuick">
+            <span>&#9889; New Payment</span>
+          </button>
+          <a href="/api/v1/ledger/audit-report.pdf" target="_blank" class="btn btn-outline btn-sm">
+            <span>&#128196; SOC-2 Audit PDF</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Floating Toast Notification -->
+      <div id="toastBanner" class="toast-notification hidden"></div>
+
+      <main class="content-area">
+        <!-- =============================================================== -->
+        <!-- VIEW 1: TREASURY COMMAND CENTER (BENTO OVERVIEW)                -->
+        <!-- =============================================================== -->
+        <section id="view-overview" class="view-section active">
+          <!-- Hero Bento Row: Nodal Custody Vault + Animated Money-Flow Pipeline -->
+          <div class="hero-bento-grid">
+            <!-- Left: Primary RBI Nodal Bank Vault Card -->
+            <div class="vault-hero-card">
+              <div class="vault-card-glow"></div>
+              <div class="vault-top-row">
+                <span class="vault-badge">ACCOUNT #1000 &bull; HDFC RBI NODAL ESCROW</span>
+                <span class="vault-acid-tag">WAL SERIALIZABLE</span>
+              </div>
+              <div class="vault-balance-label">Total Custodial Assets (100% Backed)</div>
+              <div class="vault-balance-value" id="kpiNodalBank">₹0.00</div>
+              <div class="vault-equation-bar">
+                <div class="eq-item">
+                  <span>Customer Wallets</span>
+                  <strong id="eqCustTotal">₹0.00</strong>
+                </div>
+                <span class="eq-plus">+</span>
+                <div class="eq-item">
+                  <span>Escrow Hold</span>
+                  <strong id="eqEscrowTotal">₹0.00</strong>
+                </div>
+                <span class="eq-plus">+</span>
+                <div class="eq-item">
+                  <span>Merchants &amp; Tax</span>
+                  <strong id="eqMerchTaxTotal">₹0.00</strong>
+                </div>
+              </div>
+              <div class="vault-actions">
+                <button class="btn btn-light-glass btn-sm" id="btnInspectNodalVault">
+                  Inspect #1000 T-Account &rarr;
+                </button>
+                <button class="btn btn-emerald-glass btn-sm" id="btnSettleAllEscrow">
+                  &#10004; Settle Pending Escrow
+                </button>
+              </div>
+            </div>
+
+            <!-- Right: Interactive Visual Money-Flow Architecture Pipeline -->
+            <div class="pipeline-card">
+              <div class="pipeline-header">
+                <div>
+                  <h3>Live Double-Entry Funds Flow Pipeline</h3>
+                  <p>Every transaction balances <code>&Sigma; Debits === &Sigma; Credits</code> across 4 isolated ledger tiers</p>
+                </div>
+                <button class="btn btn-primary btn-xs" id="btnGoToStudioFromPipe">
+                  Launch Checkout Studio &rarr;
+                </button>
+              </div>
+
+              <div class="flow-diagram">
+                <div class="flow-node node-customer" onclick="switchView('view-accounts')">
+                  <div class="node-icon">&#128179;</div>
+                  <div class="node-tier">TIER 1 &bull; #2101–2103</div>
+                  <div class="node-title">Customer Wallets</div>
+                  <div class="node-amount" id="pipeCustBalance">₹0.00</div>
+                  <div class="node-meta">Zero-Overdraft Liability</div>
+                </div>
+
+                <div class="flow-connector">
+                  <div class="connector-line"><div class="connector-particle"></div></div>
+                  <span class="connector-label">Idempotent Capture</span>
+                </div>
+
+                <div class="flow-node node-escrow" onclick="switchView('view-payments')">
+                  <div class="node-icon">&#128274;</div>
+                  <div class="node-tier">TIER 2 &bull; #2200</div>
+                  <div class="node-title">Escrow Hold Vault</div>
+                  <div class="node-amount text-amber" id="pipeEscrowBalance">₹0.00</div>
+                  <div class="node-meta">In-Flight Clearing</div>
+                </div>
+
+                <div class="flow-connector">
+                  <div class="connector-line"><div class="connector-particle delay-1"></div></div>
+                  <span class="connector-label">T+0 Split Engine</span>
+                </div>
+
+                <div class="flow-split-stack">
+                  <div class="flow-subnode sub-merchant" onclick="switchView('view-accounts')">
+                    <div>
+                      <span class="sub-tag">97.64% NET</span>
+                      <strong>Merchant Payables (#2301+)</strong>
+                    </div>
+                    <span class="mono" id="pipeMerchBalance">₹0.00</span>
+                  </div>
+                  <div class="flow-subnode sub-revenue" onclick="switchView('view-accounts')">
+                    <div>
+                      <span class="sub-tag">2.00% MDR</span>
+                      <strong>Platform Revenue (#4100)</strong>
+                    </div>
+                    <span class="mono text-emerald" id="pipeRevBalance">₹0.00</span>
+                  </div>
+                  <div class="flow-subnode sub-gst" onclick="switchView('view-invoices')">
+                    <div>
+                      <span class="sub-tag">18% ON FEE</span>
+                      <strong>GST Output Tax (#2400)</strong>
+                    </div>
+                    <span class="mono text-indigo" id="pipeGstBalance">₹0.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Executive Metric Cards -->
+          <div class="metrics-row-4">
+            <div class="metric-card">
+              <div class="metric-top">
+                <span class="metric-title">Gross Captured Volume (GMV)</span>
+                <span class="metric-icon-box blue">&#128200;</span>
+              </div>
+              <div class="metric-val" id="kpiGmv">₹0.00</div>
+              <div class="metric-foot" id="kpiRefundSub">Refunded Reversals: ₹0.00</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <span class="metric-title">Escrow Float In-Flight (#2200)</span>
+                <span class="metric-icon-box amber">&#9203;</span>
+              </div>
+              <div class="metric-val text-amber" id="kpiEscrow">₹0.00</div>
+              <div class="metric-foot">Held safely until T+0 settlement</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <span class="metric-title">Platform MDR Fee Revenue</span>
+                <span class="metric-icon-box emerald">&#128176;</span>
+              </div>
+              <div class="metric-val text-emerald" id="kpiRevenue">₹0.00</div>
+              <div class="metric-foot">GST Collected (#2400): <strong id="kpiGst">₹0.00</strong></div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <span class="metric-title">Idempotency &amp; Webhook Shield</span>
+                <span class="metric-icon-box purple">&#128737;</span>
+              </div>
+              <div class="metric-val" id="kpiIdemSaves">0 Replays</div>
+              <div class="metric-foot" id="kpiWebhookSub">Webhook DLQ / Pending: 0</div>
+            </div>
+          </div>
+
+          <!-- Interactive Wallets & Merchants Showcase + Recent Ledger Stream -->
+          <div class="overview-lower-grid">
+            <!-- Customer Wallets & Merchants Cards -->
+            <div class="glass-panel">
+              <div class="panel-header">
+                <div>
+                  <h3>Active Customer Wallets &amp; Enterprise Merchants</h3>
+                  <p>Click any wallet to top up via RTGS or inspect its T-account statement</p>
+                </div>
+              </div>
+              <div class="section-sub-label">CUSTOMER DIGITAL WALLETS (ZERO-OVERDRAFT)</div>
+              <div id="overviewWalletsGrid" class="entity-cards-grid"></div>
+
+              <div class="section-sub-label" style="margin-top:18px;">REGISTERED MERCHANTS &amp; GST TAX JURISDICTIONS</div>
+              <div id="overviewMerchantsGrid" class="entity-cards-grid"></div>
+            </div>
+
+            <!-- Live Recent Payments Feed -->
+            <div class="glass-panel">
+              <div class="panel-header">
+                <div>
+                  <h3>Recent Payment Captures &amp; Settlements</h3>
+                  <p>Click any transaction to open its Double-Entry &amp; GST Receipt Drawer</p>
+                </div>
+                <button class="btn btn-outline btn-xs" onclick="switchView('view-payments')">View All &rarr;</button>
+              </div>
+              <div id="overviewRecentPayments" class="activity-feed-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- VIEW 2: INTERACTIVE CHECKOUT STUDIO                             -->
+        <!-- =============================================================== -->
+        <section id="view-checkout" class="view-section">
+          <div class="checkout-studio-grid">
+            <!-- Left: Payment Configuration & Idempotency Engineering Controls -->
+            <div class="glass-panel">
+              <div class="panel-header">
+                <div>
+                  <h3>1. Configure Payment &amp; Idempotency Parameters</h3>
+                  <p>Select Payer Wallet, Merchant Beneficiary, Rail, and Idempotency-Key behavior</p>
+                </div>
+                <span class="code-pill">POST /api/v1/payments/capture</span>
+              </div>
+
+              <form id="captureForm" class="studio-form">
+                <div class="form-group">
+                  <label>Select Payer Customer Wallet</label>
+                  <select id="custSelect" class="input-control" required></select>
+                </div>
+
+                <div class="form-group">
+                  <label>Select Merchant Beneficiary (Sets Intra/Inter-State GST)</label>
+                  <select id="merchSelect" class="input-control" required></select>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label>Order Amount (₹ INR)</label>
+                    <input type="number" id="payAmountInr" class="input-control mono-lg" value="18500" min="1" step="0.01" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Payment Rail</label>
+                    <select id="payMethod" class="input-control">
+                      <option value="UPI_INTENT_PRO">UPI Intent Pro (Instant)</option>
+                      <option value="CARD_VISA_CORPORATE">Visa Corporate Commercial</option>
+                      <option value="IMPS_EXPRESS">IMPS Express Clearing</option>
+                      <option value="RTGS_TREASURY">RBI RTGS High-Value</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Order Narration / Invoice Line Item</label>
+                  <input type="text" id="payDesc" class="input-control" value="Enterprise Cloud Infrastructure Subscription Q4" required />
+                </div>
+
+                <!-- Telemetry & Fraud Firewall Presets -->
+                <div class="form-group">
+                  <div class="flex-between">
+                    <label>Source IP &amp; 5-Factor Fraud Firewall Simulation</label>
+                    <div class="chip-group">
+                      <button type="button" class="chip-btn active" id="presetCleanIp">Clean IP (0 Risk)</button>
+                      <button type="button" class="chip-btn warn" id="presetTorIp">Tor Exit IP (+50 Risk)</button>
+                      <button type="button" class="chip-btn danger" id="presetFraudAttack">Fraud Exploit (Block 403)</button>
+                    </div>
+                  </div>
+                  <input type="text" id="payIp" class="input-control mono" value="103.21.244.12" required />
+                </div>
+
+                <!-- RFC Idempotency-Key Control Card -->
+                <div class="idempotency-control-card">
+                  <div class="flex-between">
+                    <label class="idem-title">&#128273; RFC `Idempotency-Key` Header</label>
+                    <div class="chip-group">
+                      <button type="button" class="chip-btn" id="btnNewIdemKey">&#8635; Rotate Key</button>
+                      <label class="toggle-check">
+                        <input type="checkbox" id="chkKeepSameKey" />
+                        <span>Pin Key (Test Retry Dedup)</span>
+                      </label>
+                    </div>
+                  </div>
+                  <input type="text" id="idemKeyInput" class="input-control mono" required />
+                  <p class="idem-subtext">
+                    Pinning the key and clicking Capture twice proves <strong>At-Most-Once execution</strong> (`HTTP 200 HIT-REPLAY`).
+                  </p>
+                </div>
+
+                <div class="studio-action-row">
+                  <button type="submit" class="btn btn-primary btn-lg flex-1" id="btnSubmitCapture">
+                    &#9889; Execute Idempotent Capture
+                  </button>
+                  <button type="button" class="btn btn-amber btn-lg" id="btnTestConflict422" title="Reuses last key with mutated ₹99,999 amount">
+                    Test HTTP 422 Conflict
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Right: Live RazorpayX / Stripe Interactive Checkout Preview & API Response -->
+            <div class="checkout-preview-column">
+              <div class="live-checkout-device">
+                <div class="device-topbar">
+                  <div class="device-dots"><span></span><span></span><span></span></div>
+                  <span class="device-url">&#128274; checkout.ledgerflow.in/pay</span>
+                  <span class="badge badge-emerald">TLS 1.3 &bull; ACID</span>
+                </div>
+
+                <div class="checkout-widget-body">
+                  <div class="checkout-merchant-header">
+                    <div class="merchant-avatar" id="previewMerchAvatar">Z</div>
+                    <div>
+                      <div class="checkout-merch-label">PAYING VERIFIED MERCHANT</div>
+                      <div class="checkout-merch-name" id="previewMerchName">Zepto Quick Commerce</div>
+                      <div class="checkout-merch-gst" id="previewMerchGst">GSTIN: 29AABCZ4512K1Z4</div>
+                    </div>
+                  </div>
+
+                  <div class="checkout-amount-banner">
+                    <span class="checkout-amt-label">Total Payable</span>
+                    <div class="checkout-amt-big" id="prevGross">₹18,500.00</div>
+                    <span class="checkout-desc-pill" id="previewDescText">Enterprise Cloud Infrastructure Subscription Q4</span>
+                  </div>
+
+                  <!-- Visual Stacked Split Bar -->
+                  <div class="split-breakdown-card">
+                    <div class="split-bar-header">
+                      <span>T+0 Settlement &amp; GST Split Breakdown</span>
+                      <span class="mono" id="prevTaxLabel">9% CGST + 9% SGST</span>
+                    </div>
+                    <div class="split-visual-bar">
+                      <div class="bar-seg seg-merch" style="width: 97.64%" title="Merchant Net (97.64%)"></div>
+                      <div class="bar-seg seg-fee" style="width: 2.00%" title="Platform MDR (2.00%)"></div>
+                      <div class="bar-seg seg-gst" style="width: 0.36%" title="GST (0.36%)"></div>
+                    </div>
+                    <div class="split-legend-grid">
+                      <div class="legend-item">
+                        <span class="dot merch"></span>
+                        <span>Net Merchant Payout</span>
+                        <strong id="prevNet" class="mono text-emerald">₹18,063.40</strong>
+                      </div>
+                      <div class="legend-item">
+                        <span class="dot fee"></span>
+                        <span>Platform MDR (2.00%)</span>
+                        <strong id="prevFee" class="mono">₹370.00</strong>
+                      </div>
+                      <div class="legend-item">
+                        <span class="dot gst"></span>
+                        <span>Output GST (18% on Fee)</span>
+                        <strong id="prevTax" class="mono text-indigo">₹66.60</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="button" class="checkout-pay-cta" onclick="document.getElementById('captureForm').requestSubmit()">
+                    <span>Authorize &amp; Lock in Escrow</span>
+                    <span class="mono" id="prevCtaAmt">₹18,500.00 &rarr;</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Live API Response Telemetry Card -->
+              <div id="lastCaptureResponseBox" class="glass-panel response-card hidden">
+                <div class="flex-between" style="margin-bottom:10px;">
+                  <span class="section-sub-label" style="margin:0;">LIVE GATEWAY TELEMETRY</span>
+                  <div class="chip-group">
+                    <span id="lastRespStatusBadge" class="badge badge-emerald">HTTP 201</span>
+                    <span id="lastRespIdemBadge" class="badge badge-blue">X-Idempotency-Status: MISS</span>
+                  </div>
+                </div>
+                <pre id="lastRespJson" class="code-block"></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- VIEW 3: ESCROW & SETTLEMENTS LEDGER TABLE                       -->
+        <!-- =============================================================== -->
+        <section id="view-payments" class="view-section">
+          <div class="glass-panel">
+            <div class="panel-header">
+              <div>
+                <h3>Escrow Captures, T+0 Split Settlements &amp; Refunds</h3>
+                <p>Click any payment row to inspect its Double-Entry Journal legs, or trigger instant T+0 settlement / refund reversal</p>
+              </div>
+              <div class="chip-group">
+                <span class="badge badge-emerald" id="paymentsCountBadge">0 Payments</span>
+                <button class="btn btn-primary btn-xs" onclick="switchView('view-checkout')">+ Capture New Payment</button>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table class="modern-table">
+                <thead>
+                  <tr>
+                    <th>Payment ID &amp; Idempotency Key</th>
+                    <th>Payer Wallet &rarr; Merchant</th>
+                    <th class="text-right">Gross Captured</th>
+                    <th class="text-right">MDR + GST</th>
+                    <th class="text-right">Net Merchant</th>
+                    <th>Fraud Risk</th>
+                    <th>Lifecycle Status</th>
+                    <th class="text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="paymentsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- VIEW 4: CHART OF ACCOUNTS & T-ACCOUNTS                          -->
+        <!-- =============================================================== -->
+        <section id="view-accounts" class="view-section">
+          <div class="accounts-split-layout">
+            <div class="glass-panel">
+              <div class="panel-header">
+                <div>
+                  <h3>GAAP / RBI Nodal Chart of Accounts</h3>
+                  <p>Click any account to inspect its historical T-Account DEBIT and CREDIT ledger lines</p>
+                </div>
+                <button class="btn btn-primary btn-xs" id="btnQuickTopup">+ ₹1,00,000 RTGS Top-Up</button>
+              </div>
+
+              <div class="table-wrap">
+                <table class="modern-table">
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Account Name</th>
+                      <th>Type &amp; Normal Side</th>
+                      <th>Tax / State</th>
+                      <th class="text-right">Live Balance</th>
+                      <th class="text-right">Statement</th>
+                    </tr>
+                  </thead>
+                  <tbody id="accountsTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Right: Visual T-Account Book -->
+            <div class="glass-panel">
+              <div class="panel-header">
+                <div>
+                  <h3 id="tAccountTitle">T-Account Ledger Statement</h3>
+                  <p id="tAccountSubtitle">Select an account to view its immutable DEBIT and CREDIT journal entries</p>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table class="modern-table">
+                  <thead>
+                    <tr>
+                      <th>Entry / Block</th>
+                      <th>Narration</th>
+                      <th>Side</th>
+                      <th class="text-right">Amount</th>
+                      <th class="text-right">Running Bal</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tAccountBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- VIEW 5: GST TAX INVOICES & LIVE PAPER PREVIEW                   -->
+        <!-- =============================================================== -->
+        <section id="view-invoices" class="view-section">
+          <div class="invoices-split-layout">
+            <div class="glass-panel">
+              <div class="panel-header">
+                <div>
+                  <h3>Official GST Tax Invoices (SAC 998314)</h3>
+                  <p>Click any invoice to preview on the right or download the native `%PDF-1.4` Tax Invoice</p>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table class="modern-table">
+                  <thead>
+                    <tr>
+                      <th>Invoice #</th>
+                      <th>Merchant &amp; GSTIN</th>
+                      <th>Regime</th>
+                      <th class="text-right">Gross</th>
+                      <th class="text-right">Fee + GST</th>
+                      <th class="text-right">Net Payout</th>
+                      <th class="text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="invoicesTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Right: Live Visual GST Paper Invoice Preview -->
+            <div class="invoice-paper-preview" id="liveInvoicePaper">
+              <div class="paper-empty">Select an invoice to preview its official Section 31 GST breakdown &amp; cryptographic seal.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- VIEW 6: CONCURRENCY & DOUBLE-SPEND RACE LAB                     -->
+        <!-- =============================================================== -->
+        <section id="view-lab" class="view-section">
+          <div class="lab-grid-2">
+            <!-- Experiment 1 -->
+            <div class="glass-panel">
+              <div class="panel-header">
+                <div>
+                  <span class="badge badge-blue" style="margin-bottom:6px;">EXPERIMENT 01 &bull; AT-MOST-ONCE DEDUP</span>
+                  <h3>10-Thread Parallel Network Retry Storm</h3>
+                  <p>Spawns 10 concurrent threads firing `POST /api/v1/payments/capture` with the <strong>same `Idempotency-Key`</strong></p>
+                </div>
+                <button class="btn btn-primary" id="btnRunIdemStorm">
+                  &#9889; Launch 10x Retry Storm
+                </button>
+              </div>
+
+              <div id="idemStormSummary" class="lab-result-callout hidden"></div>
+
+              <div class="table-wrap">
+                <table class="modern-table">
+                  <thead>
+                    <tr>
+                      <th>Thread</th>
+                      <th>HTTP</th>
+                      <th>Idempotency Status</th>
+                      <th>Replay #</th>
+                      <th>Payment ID</th>
+                      <th>Journal TX</th>
+                    </tr>
+                  </thead>
+                  <tbody id="idemStormTableBody">
+                    <tr><td colspan="6" class="empty-state-cell">Click "Launch 10x Retry Storm" to execute 10 concurrent requests.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Experiment 2 -->
+            <div class="glass-panel">
+              <div class="panel-header">
+                <div>
+                  <span class="badge badge-amber" style="margin-bottom:6px;">EXPERIMENT 02 &bull; TOCTOU RACE DEFENSE</span>
+                  <h3>8-Thread Double-Spend Overdraft Attack</h3>
+                  <p>Wallet Balance: <strong>₹5,000.00</strong> &mdash; 8 parallel threads each try to spend <strong>₹3,500.00</strong> with distinct keys</p>
+                </div>
+                <button class="btn btn-amber" id="btnRunRaceAttack">
+                  &#128737; Launch 8x Race Attack
+                </button>
+              </div>
+
+              <div id="raceAttackSummary" class="lab-result-callout hidden"></div>
+
+              <div class="table-wrap">
+                <table class="modern-table">
+                  <thead>
+                    <tr>
+                      <th>Thread</th>
+                      <th>Distinct Key</th>
+                      <th>HTTP</th>
+                      <th>ACID Outcome</th>
+                      <th>Audit Detail</th>
+                    </tr>
+                  </thead>
+                  <tbody id="raceAttackTableBody">
+                    <tr><td colspan="5" class="empty-state-cell">Click "Launch 8x Race Attack" to test `BEGIN IMMEDIATE` overdraft serialization.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- VIEW 7: SHA-256 HASH-CHAINED LEDGER & TAMPER AUDITOR            -->
+        <!-- =============================================================== -->
+        <section id="view-audit" class="view-section">
+          <div class="glass-panel" style="margin-bottom:20px;">
+            <div class="panel-header">
+              <div>
+                <h3>Cryptographic SHA-256 Merkle Chain &amp; Tamper Simulator</h3>
+                <p>Inject an unauthorized `+₹100` SQL mutation into a historical ledger row to watch the SHA-256 chain auditor pinpoint the exact corrupted block</p>
+              </div>
+              <div class="chip-group">
+                <button class="btn btn-primary btn-sm" id="btnRunVerifyNow">&#10004; Verify Chain</button>
+                <button class="btn btn-danger btn-sm" id="btnSimulateTamper">&#9888; Inject +₹100 DB Tamper</button>
+                <button class="btn btn-emerald btn-sm" id="btnHealTamper">&#128737; Self-Heal Ledger</button>
+              </div>
+            </div>
+            <div id="auditReportBanner" class="audit-status-box"></div>
+          </div>
+
+          <div class="glass-panel">
+            <div class="panel-header">
+              <div>
+                <h3>Immutable Hash-Chained Journal Blocks</h3>
+                <p>Each block hashes `SHA256(seq_no | tx_id | amount | prev_hash | canonical_entries)`</p>
+              </div>
+            </div>
+            <div id="journalBlocksContainer" class="blockchain-timeline"></div>
+          </div>
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- VIEW 8: HMAC-SHA256 WEBHOOKS, DLQ & SIGNATURE VERIFIER          -->
+        <!-- =============================================================== -->
+        <section id="view-webhooks" class="view-section">
+          <div class="lab-grid-2">
+            <!-- Left: Webhook Delivery Queue & Outage Toggle -->
+            <div class="glass-panel">
+              <div class="panel-header">
+                <div>
+                  <h3>Webhook Dispatcher, Exponential Backoff &amp; DLQ</h3>
+                  <p>Toggle Merchant `HTTP 503` Outage Mode, trigger retries into the Dead-Letter Queue, and replay</p>
+                </div>
+                <div class="chip-group">
+                  <button class="btn btn-emerald btn-xs" id="btnToggleSinkMode">Sink: HEALTHY (200)</button>
+                  <button class="btn btn-primary btn-xs" id="btnReplayAllDlq">&#8635; Replay All DLQ</button>
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table class="modern-table">
+                  <thead>
+                    <tr>
+                      <th>Webhook / Event</th>
+                      <th>Resource</th>
+                      <th>Status</th>
+                      <th>HTTP / Try</th>
+                      <th>HMAC Header</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="webhooksTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Right: Interactive HMAC Signature Verifier -->
+            <div class="glass-panel">
+              <div class="panel-header">
+                <div>
+                  <h3>Interactive HMAC-SHA256 Signature Verifier</h3>
+                  <p>Test constant-time `hmac.compare_digest` verification against payload tampering &amp; replay attacks</p>
+                </div>
+              </div>
+
+              <div class="studio-form">
+                <div class="chip-group">
+                  <button type="button" class="chip-btn active" id="btnLoadValidWebhook">1. Valid Signed Payload</button>
+                  <button type="button" class="chip-btn warn" id="btnTamperWebhookBody">2. Tamper JSON Amount</button>
+                  <button type="button" class="chip-btn danger" id="btnExpiredWebhookTs">3. Stale Timestamp (&gt;300s)</button>
+                </div>
+
+                <div class="form-group">
+                  <label>Raw Webhook JSON Body</label>
+                  <textarea id="whRawBody" rows="4" class="input-control mono"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label>`X-LedgerFlow-Signature` HTTP Header</label>
+                  <input type="text" id="whSigHeader" class="input-control mono" />
+                </div>
+
+                <button type="button" class="btn btn-primary" id="btnVerifyWebhookSig">
+                  &#128274; Verify HMAC-SHA256 Digest &amp; Replay Window
+                </button>
+
+                <div id="whVerifyResult" class="response-card hidden"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- SLIDE-OVER PAYMENT & DOUBLE-ENTRY RECEIPT INSPECTOR DRAWER            -->
+  <!-- ===================================================================== -->
+  <div id="inspectorDrawerBackdrop" class="drawer-backdrop hidden">
+    <aside class="inspector-drawer" onclick="event.stopPropagation()">
+      <div class="drawer-header">
+        <div>
+          <span class="badge badge-blue" id="drawerPaymentBadge">PAYMENT RECEIPT</span>
+          <h3 id="drawerTitle" style="margin-top:4px;">PAY-XXXXXXXX</h3>
+        </div>
+        <button class="btn-close-icon" id="btnCloseDrawer">&times;</button>
+      </div>
+      <div id="drawerBodyContent" class="drawer-body"></div>
+    </aside>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- REFUND MODAL                                                          -->
+  <!-- ===================================================================== -->
+  <div id="refundModal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="refundModalTitle">Issue Double-Entry Refund Reversal</h3>
+        <button type="button" class="btn-close-icon" id="btnCloseRefundModal">&times;</button>
+      </div>
+      <form id="refundForm" class="studio-form">
+        <input type="hidden" id="refundPaymentId" />
+        <div class="form-group">
+          <label for="refundAmountInr">Refund Amount (₹ INR)</label>
+          <input type="number" id="refundAmountInr" class="input-control mono-lg" step="0.01" min="1" required />
+          <small id="refundMaxHint" class="text-muted"></small>
+        </div>
+        <div class="form-group">
+          <label for="refundReason">Audit Reversal Reason</label>
+          <input type="text" id="refundReason" class="input-control" value="Customer requested order cancellation / partial reversal" required />
+        </div>
+        <button type="submit" class="btn btn-danger btn-lg">Execute Balanced Refund Reversal</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
